@@ -1,5 +1,5 @@
 <style>
-#container{
+.inner{
 background-color:#363537;
 }
 </style>
