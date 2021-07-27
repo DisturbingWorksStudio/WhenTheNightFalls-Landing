@@ -1,6 +1,7 @@
 baseurl: "/WhenTheNightFalls-Landing"
 plugins:
   - jekyll-postcss
+
 sass:
   load_paths:
     - _sass
