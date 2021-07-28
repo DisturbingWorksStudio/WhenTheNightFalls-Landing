@@ -1,8 +1,8 @@
 on:
    push:
-     branches: [ gh-pages ]
+     branches: [ develop ]
    pull_request:
-     branches: [ gh-pages ]
+     branches: [ develop ]
 
 jobs:
    build:
@@ -15,14 +15,7 @@ jobs:
        run: npm install
        
      - name: Build the site in the jekyll/builder container
-       run: |
-         docker run \
-         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-         
-     - name: GitHub Pages
-       uses: crazy-max/ghaction-github-pages@v2.5.0
-       with:
-        build_dir: _site/
-       env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     - uses: fabacab/jekyll-builder-for-github-pages-action@master
+          with:
+            secret_gh_pages_api_token: ${{ secrets.GH_PAGES_TOKEN }}
+
