@@ -5,7 +5,7 @@ on:
      branches: [ develop ]
 
 jobs:
-   build:
+   build-and-publish:
 
      runs-on: ubuntu-latest
 
@@ -14,8 +14,7 @@ jobs:
      - name: Install Dependencies
        run: npm install
        
-     - name: Build the site in the jekyll/builder container
      - uses: fabacab/jekyll-builder-for-github-pages-action@master
           with:
             secret_gh_pages_api_token: ${{ secrets.GH_PAGES_TOKEN }}
-
+            
