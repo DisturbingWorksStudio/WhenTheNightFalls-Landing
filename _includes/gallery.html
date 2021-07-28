@@ -1,0 +1,42 @@
+<div class="pt-10 mt-10 border-opacity-25 border-white border-t">
+  <h2 class="text-3xl pb-5 antialiased">Screenshots</h2>
+  <div class="grid grid-flow-row md:grid-cols-3 grid-cols-1 gap-4">
+    {% for image in page.images %}
+    <img
+      name="screenshot"
+      class="cursor-pointer w-full"
+      src="{{ image.path }}"
+    />
+    {% endfor %}
+  </div>
+</div>
+
+<div
+  id="modal"
+  class="hidden inset-0 fixed z-10 bg-black bg-opacity-50 h-full w-full"
+>
+  <div class="h-full flex justify-center items-center">
+    <span id="close" class="text-4xl cursor-pointer absolute top-4 right-10"
+      >&times;</span
+    >
+    <img class="animate-zoom h-full lg:h-5/6 object-contain" id="modalScreenshot" />
+  </div>
+</div>
+
+<script>
+  var modal = document.getElementById("modal");
+  var screenshots = document.getElementsByName("screenshot");
+  var modalScreenshot = document.getElementById("modalScreenshot");
+
+  screenshots.forEach((item) => {
+    item.addEventListener("click", function () {
+      modal.style.display = "block";
+      modalScreenshot.src = this.src;
+    });
+  });
+
+  var span = document.getElementById("close");
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+</script>
