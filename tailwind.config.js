@@ -16,7 +16,7 @@ module.exports = {
     },
     gradientColorStops: (theme) => ({
       ...theme("colors"),
-      primary: "#1C0707",
+      primary: "#2C3423",
     }),
     extend: {},
   },
