@@ -18,17 +18,7 @@ module.exports = {
       ...theme("colors"),
       primary: "#1C0707",
     }),
-    extend: {
-      animation: {
-        "zoom": "zoom 0.3s ease-in",
-      },
-      keyframes: {
-        zoom: {
-          "0%": { transform: "scale(0.4)" },
-          "100%": { transform: "scale(1)" },
-        },
-      },
-    },
+    extend: {},
   },
   variants: {},
   plugins: [],
