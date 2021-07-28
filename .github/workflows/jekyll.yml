@@ -1,64 +1,28 @@
-# on:
-#    push:
-#      branches: [ gh-pages ]
-#    pull_request:
-#      branches: [ gh-pages ]
-
-# jobs:
-#    build:
-
-#      runs-on: ubuntu-latest
-
-#      steps:
-#      - uses: actions/checkout@v2
-#      - name: Install Dependencies
-#        run: npm install
-       
-#      - name: Build the site in the jekyll/builder container
-#        run: |
-#          docker run \
-#          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-#          jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
-         
-#      - name: GitHub Pages
-#        uses: crazy-max/ghaction-github-pages@v2.5.0
-#        with:
-#         build_dir: _site/
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-# In your repository's `.github/workflows/publish-to-github-pages.yaml` file.
----
-# Name of your GitHub Actions workflow.
-name: Publish to GitHub Pages
-
-# Specifies to run this workflow whenever a push is made (commits are
-# added) to the branch named `jekyll`.
 on:
-  push:
-    branches:
-      # Change this to the branch where you keep your Jekyll code.
-      - develop
+   push:
+     branches: [ develop ]
+   pull_request:
+     branches: [ develop ]
 
-# Define a job named `build-and-publish` in your workflow.
 jobs:
-  build-and-publish:
-    runs-on: ubuntu-latest # This job uses a GitHub-hosted runner.
+   build:
 
-    steps:
-      # Checkout the source from the `jekyll` branch.
-      - uses: actions/checkout@v2
+     runs-on: ubuntu-latest
 
-      - name: Install Dependencies
-        run: npm install
-
-      # Invoke this action against the newly checked out source code.
-      - uses: fabacab/jekyll-builder-for-github-pages-action@v1
-        with:
-          # Provide this action with your repository's `GH_PAGES_TOKEN`
-          # "Secret" variable. This should be the value of a personal
-          # access token granted, at a minimum, the `public_repo` and
-          # the `repo_deployment` scopes needed to deploy to GH Pages.
-          jekyll_build_opts: --future
-          gh_pages_publishing_source: gh-pages
-          secret_gh_pages_api_token: ${{ secrets.GH_PAGES_TOKEN }}
+     steps:
+     - uses: actions/checkout@v2
+     - name: Install Dependencies
+       run: npm install
+       
+     - name: Build the site in the jekyll/builder container
+       run: |
+         docker run \
+         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+         jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+         
+     - name: GitHub Pages
+       uses: crazy-max/ghaction-github-pages@v2.5.0
+       with:
+        build_dir: _site/
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
