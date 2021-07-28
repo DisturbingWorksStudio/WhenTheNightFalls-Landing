@@ -1,6 +1,6 @@
 <div
   id="modal"
-  class="hidden inset-0 fixed z-10 bg-black bg-opacity-50 h-full w-full"
+  class="hidden inset-0 fixed z-10 bg-black bg-opacity-90 h-full w-full"
 >
   <div class="h-full flex justify-center items-center">
     <span id="close" class="text-4xl cursor-pointer absolute top-4 right-10"
@@ -11,9 +11,9 @@
 </div>
 
 <script>
-  var modal = document.getElementById("modal");
-  var screenshots = document.getElementsByName("screenshot");
-  var modalScreenshot = document.getElementById("modalScreenshot");
+  const modal = document.getElementById("modal");
+  const screenshots = document.getElementsByName("screenshot");
+  const modalScreenshot = document.getElementById("modalScreenshot");
 
   screenshots.forEach((item) => {
     item.addEventListener("click", function () {
@@ -22,7 +22,7 @@
     });
   });
 
-  var span = document.getElementById("close");
+  const span = document.getElementById("close");
   span.onclick = function () {
     modal.style.display = "none";
   };
