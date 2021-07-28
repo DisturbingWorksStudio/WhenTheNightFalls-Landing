@@ -1,16 +1,3 @@
-<div class="pt-10 mt-10 border-opacity-25 border-white border-t">
-  <h2 class="text-3xl pb-5 antialiased">Screenshots</h2>
-  <div class="grid grid-flow-row md:grid-cols-3 grid-cols-1 gap-4">
-    {% for image in page.images %}
-    <img
-      name="screenshot"
-      class="cursor-pointer w-full"
-      src="{{ image.path }}"
-    />
-    {% endfor %}
-  </div>
-</div>
-
 <div
   id="modal"
   class="hidden inset-0 fixed z-10 bg-black bg-opacity-50 h-full w-full"
