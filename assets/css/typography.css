@@ -9,6 +9,8 @@ body {
   font-size: 18px;
   color: #fff;
   background-color: #191919;
-  -webkit-tap-highlight-color: transparent;
 }
 
+img {
+  -webkit-tap-highlight-color: transparent;
+}
