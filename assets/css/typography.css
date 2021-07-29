@@ -5,9 +5,10 @@
 
 body {
   font-family: "abscissa","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  line-height: 2;
+  line-height: 1.7;
   font-size: 18px;
   color: #fff;
   background-color: #191919;
+  -webkit-tap-highlight-color: transparent;
 }
 
