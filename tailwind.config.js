@@ -7,6 +7,9 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
+    fontFamily: {
+      'regular': 'mali-regular'
+     },
     container: {
       screens: {
         sm: "640px",

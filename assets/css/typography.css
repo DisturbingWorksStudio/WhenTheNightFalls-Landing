@@ -1,10 +1,15 @@
 @font-face {
-  font-family: "abscissa";
-  src: url("/WhenTheNightFalls-Landing/assets/fonts/abscissa.regular.ttf");
+  font-family: "mali-light";
+  src: url("/WhenTheNightFalls-Landing/assets/fonts/Mali-Light.ttf");
+}
+
+@font-face {
+  font-family: "mali-regular";
+  src: url("/WhenTheNightFalls-Landing/assets/fonts/Mali-Regular.ttf");
 }
 
 body {
-  font-family: "abscissa","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: "mali-light","Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   line-height: 1.7;
   letter-spacing: 1.2px;
   font-size: 18px;
