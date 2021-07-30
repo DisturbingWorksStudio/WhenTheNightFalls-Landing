@@ -6,24 +6,55 @@
     <span id="close" class="text-4xl cursor-pointer absolute top-4 right-10"
       >&times;</span
     >
-    <img class="h-full lg:h-5/6 object-contain" id="modalScreenshot" />
+    <img class="h-full lg:h-5/6 object-contain" name="modalScreenshot" />
+    <img
+      src="assets/svg/chevron-left.svg"
+      id="leftChevron"
+      class="absolute cursor-pointer left-10 w-10 h-10"
+    />
+    <img
+      src="assets/svg/chevron-right.svg"
+      id="rightChevron"
+      class="absolute cursor-pointer right-10 w-10 h-10"
+    />
   </div>
 </div>
 
 <script>
   const modal = document.getElementById("modal");
   const screenshots = document.getElementsByName("screenshot");
-  const modalScreenshot = document.getElementById("modalScreenshot");
+  const modalScreenshot = document.getElementsByName("modalScreenshot")[0];
 
   screenshots.forEach((item) => {
     item.addEventListener("click", function () {
       modal.style.display = "block";
       modalScreenshot.src = this.src;
+      modalScreenshot.id = this.id;
     });
   });
 
   const span = document.getElementById("close");
-  span.onclick = function () {
+  const leftChevron = document.getElementById("leftChevron");
+  const rightChevron = document.getElementById("rightChevron");
+
+  span.onclick = () => {
     modal.style.display = "none";
+  };
+
+  leftChevron.onclick = () => {
+    changeImage(true);
+  };
+
+  rightChevron.onclick = () => {
+    changeImage(false);
+  };
+
+  const changeImage = (isLeft) => {
+    const currentId = modalScreenshot.id;
+    if (isLeft && currentId == 0) return;
+    if (!isLeft && currentId == 8) return;
+    const newId = currentId - (isLeft ? 1 : -1);
+    modalScreenshot.src = screenshots[newId].src;
+    modalScreenshot.id = screenshots[newId].id;
   };
 </script>
