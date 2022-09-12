@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "production": "JEKYLL_ENV=production NODE_ENV=production bundle exec jekyll build",
+    "develop": "JEKYLL_ENV=development NODE_ENV=development bundle exec jekyll serve --livereload"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "cssnano": "^5.0.7",
+    "postcss": "^8.3.6",
+    "tailwindcss": "3.1.8"
+  }
+}
