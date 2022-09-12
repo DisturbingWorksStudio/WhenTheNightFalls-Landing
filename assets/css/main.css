@@ -1,3 +1,11 @@
+---
+---
+
+@charset utf-8;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "mali-light";
   src: url("/WhenTheNightFalls-Landing/assets/fonts/Mali-Light.ttf");
@@ -26,3 +34,5 @@ img {
   -ms-user-select: none;
   user-select: none;
 }
+
+
